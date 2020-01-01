@@ -33,9 +33,9 @@ public class TerrainGen : MonoBehaviour
     {
         float[,] heights = new float[width, height];
 
-        for( int x = 0; x < width; x++)
+        for( int x = 1; x < width; x++)
         {
-            for ( int y = 0; y < height; y++)
+            for ( int y = 1; y < height; y++)
             {
                 heights[x, y] = CalculateHeight(x, y);
             }

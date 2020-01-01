@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GridGen : MonoBehaviour
+public class GridGenerator : MonoBehaviour
 {
 
     float[,] map;
@@ -18,9 +18,9 @@ public class GridGen : MonoBehaviour
     {
         map = new float[width, height];
 
-        for ( int x = 0; x < width; x++ )
+        for ( int x = 2; x < width-1; x++ )
         {
-            for ( int y = 0; y < height; y++ )
+            for ( int y = 2; y < height-1; y++ )
             {
                 float xCoord = (float)x / width * scale;
                 float yCoord = (float)y / height * scale;
