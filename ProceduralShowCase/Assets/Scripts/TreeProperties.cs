@@ -14,6 +14,16 @@ public class TreeProperties : MonoBehaviour
     {
         lifeLength = Random.Range(0f, 100f);
         tick = 0;
+
+        Animator anim = GetComponent<Animator>();
+
+
+        anim.speed = map(lifeLength, 0f, 100f, 0f, 1f);
+
+        //Debug.Log(gameObject.name + " " + anim.speed);
+
+            
+
     }
 
     
@@ -28,10 +38,15 @@ public class TreeProperties : MonoBehaviour
 
         if (tick > lifeLength)
         {
-            Debug.Log(gameObject.name + " " + lifeLength);
+            //Debug.Log(gameObject.name + " " + lifeLength);
 
             Destroy(gameObject);
         }
             
+    }
+
+    float map(float value, float start1, float stop1, float start2, float stop2)
+    {
+        return start2 + (stop2 - start2) * ((lifeLength - start1) / (stop1 - start1));
     }
 }

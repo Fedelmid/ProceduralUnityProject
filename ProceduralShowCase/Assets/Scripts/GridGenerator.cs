@@ -3,8 +3,6 @@
 public class GridGenerator : MonoBehaviour
 {
 
-    float[,] map;
-
     public int width = 256;
     public int height = 256;
     public float scale = 20.0f;
@@ -14,9 +12,12 @@ public class GridGenerator : MonoBehaviour
     public GameObject point;
     public Terrain terrain;
 
+    bool[,] plantedTrees;
+
     void Start()
     {
-        map = new float[width, height];
+        plantedTrees = new bool[width, height];
+        
 
         for ( int x = 2; x < width-1; x++ )
         {
@@ -33,6 +34,12 @@ public class GridGenerator : MonoBehaviour
                 {
                     GameObject tree = Instantiate(point, new Vector3(x, terrain.terrainData.GetHeight(x, y), y), Quaternion.identity);
                     tree.transform.localScale = new Vector3( 1, scale * noiseValue, 1 );
+
+                    plantedTrees[x, y] = true;
+                }
+                else
+                {
+                    plantedTrees[x, y] = false;
                 }
                     
             }
