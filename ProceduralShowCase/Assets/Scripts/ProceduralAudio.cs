@@ -6,6 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(AudioLowPassFilter))]
 public class ProceduralAudio : MonoBehaviour
 {
+
+    float time, timer_max = 0.2f;
+    int tick;
+
     private float sampling_frequency = 48000;
 
     [Range(0f, 1f)]
@@ -28,7 +32,7 @@ public class ProceduralAudio : MonoBehaviour
     private float phase;
 
 
-    public float[] frequencies = { };
+    public float[] frequencies;
 
 
     System.Random rand = new System.Random();
@@ -36,13 +40,18 @@ public class ProceduralAudio : MonoBehaviour
 
     void Awake()
     {
+        frequencies = new float[3]{ 261.6256f, 329.6276f, 391.9954f};
+
         sampling_frequency = AudioSettings.outputSampleRate;
 
         lowPassFilter = GetComponent<AudioLowPassFilter>();
         Update();
     }
 
-
+    int randomNum()
+    {
+        return Random.Range(0, 2);
+    }
 
     void OnAudioFilterRead(float[] data, int channels)
     {
@@ -78,6 +87,23 @@ public class ProceduralAudio : MonoBehaviour
     void Update()
     {
         lowPassFilter.cutoffFrequency = cutOff ? cutoffOn : cutoffOff;
+
+        time += Time.deltaTime;
+
+        if (time >= timer_max)
+        {
+            time -= timer_max;
+            tick++;
+
+            if (tick % 10 == 0)
+            {
+                
+
+                frequency = frequencies[Random.Range(0, 2)];
+            }
+        }
+
+        
     }
 
 
