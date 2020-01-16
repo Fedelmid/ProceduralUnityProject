@@ -44,7 +44,7 @@ public class TerrainGen : MonoBehaviour
         return heights;
     }
 
-    float CalculateHeight ( int x, int y)
+    float CalculateHeight ( int x, int y ) // maybe add here the option to mix 1, 2 or 3 perlin noise
     {
         float xCoord = (float) x / width * scale; // + xOffset
         float yCoord = (float) y / height * scale; // + yOffset
