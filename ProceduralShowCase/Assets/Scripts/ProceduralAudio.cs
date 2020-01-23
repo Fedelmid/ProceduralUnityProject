@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioLowPassFilter))]
 public class ProceduralAudio : MonoBehaviour
 {
-
     float time, timer_max = 0.2f;
     int tick;
 
@@ -97,8 +96,6 @@ public class ProceduralAudio : MonoBehaviour
 
             if (tick % 10 == 0)
             {
-                
-
                 frequency = frequencies[Random.Range(0, 2)];
             }
         }
