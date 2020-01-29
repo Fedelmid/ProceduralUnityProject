@@ -22,9 +22,6 @@ public class GridGenerator : MonoBehaviour
 
     public void plantTrees (float density)
     {
-
-        Debug.Log(density);
-
         clearIsland();
 
         for (int x = 2; x < width - 1; x++)

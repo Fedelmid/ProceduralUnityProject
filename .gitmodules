@@ -1,1 +1,4 @@
 
+[submodule "ProceduralShowCase/Assets/ATK-Sharp"]
+	path = ProceduralShowCase/Assets/ATK-Sharp
+	url = https://github.com/idialab/ATK-Sharp.git
