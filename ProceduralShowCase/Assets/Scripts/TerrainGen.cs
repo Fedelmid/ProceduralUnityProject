@@ -4,22 +4,16 @@ using UnityEngine;
 public class TerrainGen : MonoBehaviour
 {
     public int depth = 20;
-    public int width = 256;
-    public int height = 256;
+    public int width = 64;
+    public int height = 64;
     public float scale = 10.0f;
 
     public int islandType;
 
     public GridGenerator gridScript;
 
-    //public float xOffset = 100f;
-    //public float yOffset = 100f;
-
     void Start ()
     {
-        //xOffset = Random.Range(0f, 9999f);
-        //yOffset = Random.Range(0f, 9999f);
-
         GenerateIsland(islandType);
     }
 
@@ -47,10 +41,10 @@ public class TerrainGen : MonoBehaviour
         return heights;
     }
 
-    float CalculateHeight ( int x, int y, int order ) // maybe add here the option to mix 1, 2 or 3 perlin noise
+    float CalculateHeight ( int x, int y, int order ) 
     {
-        float xCoord = (float)x / width; //* scale; // + xOffset
-        float yCoord = (float)y / height; //* scale; // + yOffset
+        float xCoord = (float)x / width; 
+        float yCoord = (float)y / height; 
 
         float n = 0.0f;
 

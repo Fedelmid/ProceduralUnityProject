@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 43705265645773736}
   - component: {fileID: 3634761979704208196}
   - component: {fileID: 4575499154247356348}
+  - component: {fileID: 6700855065252845276}
   m_Layer: 0
   m_Name: Leafs
   m_TagString: Untagged
@@ -156,6 +157,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6700855065252845276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592345978654839812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37aac1925137119478bbfc7fe8d2266e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 0f55b188752633e40bae41a3eaba4d66, type: 2}
 --- !u!1 &1989184452979084745
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeLength: 0
+  tick: 0
 --- !u!95 &3453221411139306032
 Animator:
   serializedVersion: 3

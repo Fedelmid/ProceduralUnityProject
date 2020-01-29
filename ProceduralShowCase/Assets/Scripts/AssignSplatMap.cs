@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// Original author Alastair Aitchison
+// Made November 14, 2013
+
+using UnityEngine;
 using System.Collections;
 using System.Linq; // used for Sum of array
 
@@ -36,21 +39,23 @@ public class AssignSplatMap : MonoBehaviour
                 // Setup an array to record the mix of texture weights at this point
                 float[] splatWeights = new float[terrainData.alphamapLayers];
 
-                // CHANGE THE RULES BELOW TO SET THE WEIGHTS OF EACH TEXTURE ON WHATEVER RULES YOU WANT
+                // ------ Modified from original ----------------------------------------------------------------------------------- //
 
-                // Texture[0] has constant influence
+                // Texture with constant influence
                 splatWeights[1] = 0.8f;
 
-                // Texture[1] is stronger at lower altitudes
+                // Texture stronger at lower altitudes
                 splatWeights[0] = Mathf.Clamp01((terrainData.heightmapHeight - height));
 
-                // Texture[2] stronger on flatter terrain
+                // Texture stronger on flatter terrain
                 // Note "steepness" is unbounded, so we "normalise" it by dividing by the extent of heightmap height and scale factor
                 // Subtract result from 1.0 to give greater weighting to flat surfaces
                 splatWeights[2] = 1.0f - Mathf.Clamp01(steepness * steepness / (terrainData.heightmapHeight / 5.0f));
 
-                // Texture[3] increases with height but only on surfaces facing positive Z axis 
+                // Texture increases with height but only on surfaces facing positive Y axis 
                 splatWeights[0] = height * Mathf.Clamp01(normal.y);
+
+                // ---------------------------------------------------------------------------------------------------------------- //
 
                 // Sum of all textures weights must add to 1, so calculate normalization factor from sum of weights
                 float z = splatWeights.Sum();

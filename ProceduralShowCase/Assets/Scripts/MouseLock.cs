@@ -4,6 +4,7 @@ public class MouseLock : MonoBehaviour
 {
     void Update()
     {
+        // Unlock cursor from window
         if (Input.GetKeyDown(KeyCode.C))
         {
             Cursor.lockState = CursorLockMode.None;

@@ -3,23 +3,27 @@
 public class TreeProperties : MonoBehaviour
 {
 
+    [HideInInspector]
     public float lifeLength;
+
     float lifeTime;
 
     float life_timer_max = 0.2f;
-    int tick;
+
+    [HideInInspector]
+    public int tick;
 
 
     Animator animController;
 
     void Awake()
     {
-        lifeLength = Random.Range(0f, 100f);
+        lifeLength = Random.Range(10f, 100f);
         tick = 0;
 
         animController = GetComponent<Animator>();
 
-        animController.speed = map(lifeLength, 1f, 100f, 1f, 2f);      
+        animController.speed = map(lifeLength, 10f, 100f, 1f, 2f);      
     }
 
     
@@ -43,7 +47,7 @@ public class TreeProperties : MonoBehaviour
             
     }
 
-    float map(float value, float start1, float stop1, float start2, float stop2)
+    public float map(float value, float start1, float stop1, float start2, float stop2)
     {
         return start2 + (stop2 - start2) * ((lifeLength - start1) / (stop1 - start1));
     }
