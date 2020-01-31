@@ -113,7 +113,7 @@ public class MelodyAudio : MonoBehaviour
     }
 
     // Make the sound sample and send it to the audio source
-    void OnAudioFilterRead(float[] data, int channels)
+    void OnAudioFilterRead( float[] data, int channels )
     {
         for ( int i = 0; i < data.Length; i += channels )
         {

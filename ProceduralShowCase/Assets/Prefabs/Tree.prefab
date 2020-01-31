@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1270513798054826430}
   - component: {fileID: 8194147853342166479}
   - component: {fileID: 2521569223978879449}
+  - component: {fileID: 5471413458984848013}
   m_Layer: 0
   m_Name: Leafs.001
   m_TagString: Untagged
@@ -78,6 +79,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5471413458984848013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843739325696193581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37aac1925137119478bbfc7fe8d2266e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1592345978654839812
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37aac1925137119478bbfc7fe8d2266e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: 0f55b188752633e40bae41a3eaba4d66, type: 2}
 --- !u!1 &1989184452979084745
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +893,7 @@ GameObject:
   - component: {fileID: 8721976150229097599}
   - component: {fileID: 1005568868821648211}
   - component: {fileID: 5807598788809335945}
+  - component: {fileID: 3390205577209662078}
   m_Layer: 0
   m_Name: Leafs.002
   m_TagString: Untagged
@@ -948,3 +961,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3390205577209662078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8105123344296978309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37aac1925137119478bbfc7fe8d2266e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

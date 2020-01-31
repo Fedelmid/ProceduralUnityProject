@@ -2,56 +2,65 @@
 
 public class TreeProperties : MonoBehaviour
 {
-
-    [HideInInspector]
+    // Tree life length 
     public float lifeLength;
 
-    float lifeTime;
+    // Timer variables
+    const float TIME_MAX = 0.2f;
+    float deltaTime;
+    int tick;
 
-    float life_timer_max = 0.2f;
-
-    [HideInInspector]
-    public int tick;
-
-
+    // Controller for animations
     Animator animController;
 
     void Awake()
     {
-        lifeLength = Random.Range(10f, 100f);
+        // Set tree life length to a random value
+        lifeLength = Random.Range(10, 100);
+
+        // Initilize timer
         tick = 0;
 
+        // Get animation controller
         animController = GetComponent<Animator>();
 
-        animController.speed = map(lifeLength, 10f, 100f, 1f, 2f);      
+        // Set the animation speed
+        animController.speed = map(lifeLength, 10f, 100f, 1f, 2f);
     }
 
     
     void Update()
     {
-        lifeTime += Time.deltaTime;
-        if(lifeTime >= life_timer_max)
+        // Count uo the timer
+        deltaTime += Time.deltaTime;
+        if(deltaTime >= TIME_MAX)
         {
-            lifeTime -= life_timer_max;
+            deltaTime -= TIME_MAX;
             tick++;
         }
 
+        // Check if the tree's life has ended
         if (tick > lifeLength)
         {
+            // Change animation to decay
             animController.SetBool("isDead", true);
 
+            // Get the animation duration for decay
             float time = animController.runtimeAnimatorController.animationClips[1].length;
 
+            // After decay animation has finished destroy tree object
             Invoke("Death", time);
         }
             
     }
 
+    // Re-map value to different interval function
     public float map(float value, float start1, float stop1, float start2, float stop2)
     {
         return start2 + (stop2 - start2) * ((lifeLength - start1) / (stop1 - start1));
     }
 
+    // Tree death
     void Death()
     {
         Destroy(gameObject);
